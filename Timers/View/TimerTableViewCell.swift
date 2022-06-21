@@ -61,9 +61,12 @@ class TimerTableViewCell: UITableViewCell {
     
     @objc func update() {
         if(count > 0){
-            let minutes = String(count / 60)
+            let years = String(count / 31536000)
+            let days = String((count % 31536000) / 86400)
+            let hours = String((count % 86400) / 3600)
+            let minutes = String((count % 3600) / 60)
             let seconds = String(count % 60)
-            timeLabel.text = minutes + ":" + seconds
+            timeLabel.text = years + ":" + days + ":" + hours + ":" + minutes + ":" + seconds
             count -= 1
         } else if count == 0 {
             timer.invalidate()
