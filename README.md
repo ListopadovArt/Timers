@@ -19,3 +19,5 @@ RunLoop.current.add(timer, forMode: .common)
 Now, even when interacting with the interface, the timer will work correctly.
 
 ---
+
+<img src="Documentation/ScreenShot.png" width="240" height="440,1" />
