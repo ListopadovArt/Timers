@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AF10AFCF26FE599A004E8B50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10AFCE26FE599A004E8B50 /* AppDelegate.swift */; };
 		AF10AFD326FE599A004E8B50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10AFD226FE599A004E8B50 /* ViewController.swift */; };
-		AF10AFD626FE599A004E8B50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF10AFD426FE599A004E8B50 /* Main.storyboard */; };
 		AF10AFD826FE599B004E8B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF10AFD726FE599B004E8B50 /* Assets.xcassets */; };
 		AF10AFDB26FE599B004E8B50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF10AFD926FE599B004E8B50 /* LaunchScreen.storyboard */; };
 		AF59201926FEEE6100FBDA2B /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59201826FEEE6100FBDA2B /* TimerTableViewCell.swift */; };
@@ -21,7 +20,6 @@
 		AF10AFCB26FE599A004E8B50 /* Timers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF10AFCE26FE599A004E8B50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF10AFD226FE599A004E8B50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AF10AFD526FE599A004E8B50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF10AFD726FE599B004E8B50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF10AFDA26FE599B004E8B50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF10AFDC26FE599B004E8B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +59,7 @@
 		AF10AFCD26FE599A004E8B50 /* Timers */ = {
 			isa = PBXGroup;
 			children = (
+				AFB26D5C298ED153000F2DD2 /* Utils */,
 				AFD670C127FA3C3F006C300D /* Model */,
 				AFD670C027FA3C38006C300D /* View */,
 				AFD670BF27FA3C2F006C300D /* Controller */,
@@ -69,6 +68,13 @@
 				AF10AFDC26FE599B004E8B50 /* Info.plist */,
 			);
 			path = Timers;
+			sourceTree = "<group>";
+		};
+		AFB26D5C298ED153000F2DD2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		AFD670BF27FA3C2F006C300D /* Controller */ = {
@@ -83,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				AF10AFD926FE599B004E8B50 /* LaunchScreen.storyboard */,
-				AF10AFD426FE599A004E8B50 /* Main.storyboard */,
 				AF59201826FEEE6100FBDA2B /* TimerTableViewCell.swift */,
 			);
 			path = View;
@@ -157,7 +162,6 @@
 				AF10AFDB26FE599B004E8B50 /* LaunchScreen.storyboard in Resources */,
 				AF10AFD826FE599B004E8B50 /* Assets.xcassets in Resources */,
 				AFE0931A280460B900E8929D /* Readme.md in Resources */,
-				AF10AFD626FE599A004E8B50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,14 +182,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AF10AFD426FE599A004E8B50 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF10AFD526FE599A004E8B50 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AF10AFD926FE599B004E8B50 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

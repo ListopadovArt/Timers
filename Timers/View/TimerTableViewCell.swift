@@ -31,6 +31,9 @@ class TimerTableViewCell: UITableViewCell {
         return label
     }()
     
+    static let reuseID = "TimerTableViewCell"
+    static let rowHeight:CGFloat = 40
+    
     weak var delegate: TimerTableViewCellDelegate?
     var timer = Timer()
     var count = 0
