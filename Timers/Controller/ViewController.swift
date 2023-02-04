@@ -9,13 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: - Configure
-    var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(TimerTableViewCell.self, forCellReuseIdentifier: "TimerTableViewCell")
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        return tableView
-    }()
+    // MARK: - Components
+    var tableView = UITableView()
     
     // MARK: - Properties
     var tasks: [Task] = []
@@ -38,32 +33,19 @@ class ViewController: UIViewController {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithDefaultBackground()
             appearance.configureWithTransparentBackground()
-            appearance.backgroundColor = .yellow
+            appearance.backgroundColor = .systemYellow
             appearance.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: UIFont.Weight(900))]
             navigationBar?.standardAppearance = appearance
             navigationBar?.scrollEdgeAppearance = appearance
             
         } else {
             let barAppearance = UINavigationBar.appearance()
-            navigationBar?.barTintColor = .yellow
+            navigationBar?.barTintColor = .systemYellow
             navigationBar?.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: UIFont.Weight(900))]
             barAppearance.setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.defaultPrompt)
             barAppearance.shadowImage = UIImage()
         }
     }
-    
-    func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.view.addSubview(tableView)
-        tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200
-    }
-    
     
     // MARK: - Actions
     @objc func showAlertView() {
@@ -97,13 +79,34 @@ class ViewController: UIViewController {
 }
 
 // MARK: - Extensions
+
+extension ViewController {
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(TimerTableViewCell.self, forCellReuseIdentifier: TimerTableViewCell.reuseID)
+        tableView.rowHeight = TimerTableViewCell.rowHeight
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+}
+
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TimerTableViewCell", for: indexPath) as? TimerTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TimerTableViewCell.reuseID, for: indexPath) as? TimerTableViewCell else {
             return UITableViewCell()
         }
         if let name = tasks[indexPath.row].name, let time = tasks[indexPath.row].time {
