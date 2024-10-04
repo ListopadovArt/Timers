@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             textField.autocapitalizationType = .sentences
         }
         alert.addTextField { textField in
-            textField.placeholder = "Time"
+            textField.placeholder = "Time, sec."
             textField.autocapitalizationType = .sentences
         }
         let okAction = UIAlertAction(title: "Start", style: .default) { [weak alert] (_) in
